@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /editor.html
+Disallow: /editor/
+
+Sitemap: https://andreyruvi.github.io/sitemap.xml

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Portfolio Editor</title>
+  <link rel="icon" href="assets/images/logos/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="editor/editor.css">
+</head>
+<body>
+  <!--
+    PORTFOLIO EDITOR — for you only.
+    Open this file in Google Chrome or Microsoft Edge on your computer,
+    click "Connect folder", choose this portfolio folder, edit, then Save.
+    It writes content.js, your images and resume.pdf directly into the folder.
+  -->
+  <header class="topbar">
+    <div class="brand"><span class="mark" aria-hidden="true"></span>Portfolio Editor</div>
+    <div class="status" data-status></div>
+    <div class="top-actions">
+      <button type="button" class="btn ghost" data-action="connect" title="Choose your portfolio folder so the editor can save into it"></button>
+      <button type="button" class="btn ghost" data-action="download" title="Download content.js (use if Save is not available)">Download</button>
+      <a class="btn ghost" href="index.html" target="_blank" rel="noopener">Open site ↗</a>
+      <button type="button" class="btn primary" data-action="save" title="Save (Ctrl+S)">Save</button>
+    </div>
+  </header>
+
+  <div class="notice" data-notice hidden></div>
+
+  <div class="layout">
+    <nav class="sidenav" aria-label="Editor sections" data-nav></nav>
+
+    <main class="panel" data-panel aria-live="polite"></main>
+
+    <section class="preview" aria-label="Live preview" data-preview-wrap>
+      <div class="preview-bar">
+        <span class="preview-title">Live preview</span>
+        <div class="seg" role="group" aria-label="Preview size">
+          <button type="button" data-size="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-size="mobile" aria-pressed="false">Mobile</button>
+        </div>
+        <button type="button" class="icon-btn" data-action="reload-preview" title="Reload preview">↻</button>
+      </div>
+      <div class="preview-stage" data-stage>
+        <iframe title="Website preview" data-preview src="about:blank"></iframe>
+      </div>
+    </section>
+  </div>
+
+  <button type="button" class="preview-toggle" data-action="toggle-preview">Preview</button>
+  <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+  <script src="editor/editor.js"></script>
+</body>
+</html>

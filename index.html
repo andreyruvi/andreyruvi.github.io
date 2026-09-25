@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+
+  <!-- EDIT: SEO & social preview. Replace the bracketed text with your name/title.
+       og:url and canonical need your final GitHub Pages address (see README). -->
+  <title>Architectural Building Design Studio — Architectural BIM &amp; CAD Specialist</title>
+  <meta name="description" content="Portfolio of Architectural Building Design Studio, Architectural BIM &amp; CAD Specialist. Permit sets, construction documents, structural and MEP coordination,…">
+  <meta name="keywords" content="Architectural BIM Modeler, Revit BIM Services, Architectural Drafting Services, CAD Drafting, Permit Drawings, Revit Modeling, Chief Architect Designer, SketchUp Modeling, Architectural Designer, Remote BIM Services, Residential Drafting, Construction Documentation, Scan to BIM, As-Built Modeling">
+  <meta name="author" content="Andrey Ruvi (Duong Lam)">
+  <meta name="theme-color" content="#0C0D0F">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Architectural Building Design Studio — Architectural BIM &amp; CAD Specialist">
+  <meta property="og:description" content="Portfolio of Architectural Building Design Studio, Architectural BIM &amp; CAD Specialist. Permit sets, construction documents, structural and MEP coordination,…">
+  <!-- Website address (GitHub repository andreyruvi/andreyruvi.github.io). If you publish somewhere else, change these three lines. -->
+  <meta property="og:url" content="https://andreyruvi.github.io/">
+  <meta property="og:image" content="https://andreyruvi.github.io/assets/images/cover-image.jpg">
+  <link rel="canonical" href="https://andreyruvi.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/logos/logo-256.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@1&amp;display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" data-progress aria-hidden="true"></div>
+
+  <div class="draft-bar" data-draft-bar hidden>
+    <strong>Draft mode.</strong> Highlighted text is placeholder content — edit <code>content.js</code>, then set <code>draft: false</code> before sharing.
+  </div>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Back to top">
+        <span class="brand-mark" aria-hidden="true" data-brand-mark></span>
+        <span class="brand-text" data-bind="name">[YOUR FULL NAME]</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="sr-only">Open menu</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a class="nav-cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home" aria-labelledby="hero-name" data-hero>
+      <!-- Cover image (background). Set it in the editor: Profile → Cover image -->
+      <div class="hero-cover" data-hero-cover>
+        <img data-hero-img alt="" width="1600" height="1000" fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="container hero-content">
+        <p class="eyebrow intro" style="--i:0"><span class="eyebrow-dot" aria-hidden="true"></span><span data-bind="availability">[e.g. Remote · Freelance &amp; Full-time]</span></p>
+        <h1 class="hero-name intro" style="--i:1" id="hero-name" data-bind="name">[YOUR FULL NAME]</h1>
+        <p class="hero-title intro" style="--i:2" data-bind="title">[Revit / BIM Specialist | Architectural Designer]</p>
+        <p class="hero-statement intro" style="--i:3" data-bind="statement"></p>
+        <div class="hero-actions intro" style="--i:4">
+          <a class="btn btn-primary" href="#portfolio">View My Work</a>
+          <a class="btn btn-secondary" href="assets/resume.pdf" download data-resume-link>
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+            Download Resume
+          </a>
+          <a class="btn btn-text" href="#contact">Contact Me <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <div class="container hero-meta">
+        <p class="hero-caption mono intro" style="--i:5" data-hero-caption><span data-bind="heroCaption"></span></p>
+        <dl class="hero-strip intro" style="--i:5">
+          <div><dt>Core software</dt><dd data-bind="tagline">Revit · BIM · Documentation</dd></div>
+          <div><dt>Based in</dt><dd data-bind="location">[YOUR LOCATION]</dd></div>
+          <div><dt>Resume</dt><dd><a href="assets/resume.pdf" download data-resume-link>Download PDF ↓</a></dd></div>
+        </dl>
+      </div>
+      <div class="ticker" data-render="ticker" aria-label="Services"></div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label"><span>01</span>About</p>
+          <h2 id="about-title">Accurate models. Clear drawings. <em class="serif">Reliable delivery.</em></h2>
+        </header>
+        <div class="about-grid" data-render="about"></div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section class="section section-alt" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label"><span>02</span>Services</p>
+          <h2 id="services-title">How I can support <em class="serif">your team</em></h2>
+          <p class="section-intro">Production support for architecture, design, and construction teams — from model development to issued drawing sets.</p>
+        </header>
+        <div class="services-grid" data-render="services"></div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label"><span>03</span>Skills</p>
+          <h2 id="skills-title">Tools &amp; <em class="serif">technical skills</em></h2>
+        </header>
+        <div class="skills-grid" data-render="skills"></div>
+      </div>
+    </section>
+
+    <!-- ============ PORTFOLIO ============ -->
+    <section class="section section-alt" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <header class="section-head section-head-row reveal">
+          <div>
+            <p class="section-label"><span>04</span>Portfolio</p>
+            <h2 id="portfolio-title">Selected <em class="serif">projects</em></h2>
+          </div>
+          <div class="filters" role="group" aria-label="Filter projects by type" data-render="filters"></div>
+        </header>
+        <div class="projects-grid" data-render="projects"></div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="section-label"><span>05</span>Process</p>
+          <h2 id="process-title">How I <em class="serif">work</em></h2>
+          <p class="section-intro">From the files you send to a coordinated, delivered set.</p>
+        </header>
+        <ol class="steps" data-render="process"></ol>
+      </div>
+    </section>
+
+    <!-- ============ RESUME ============ -->
+    <section class="section section-alt" id="resume" aria-labelledby="resume-title">
+      <div class="container">
+        <header class="section-head section-head-row reveal">
+          <div>
+            <p class="section-label"><span>05</span>Resume</p>
+            <h2 id="resume-title">Experience &amp; <em class="serif">qualifications</em></h2>
+          </div>
+          <a class="btn btn-secondary" href="assets/resume.pdf" download data-resume-link>
+            <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+            Download Resume PDF
+          </a>
+        </header>
+        <div class="resume-grid" data-render="resume"></div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section-dark" id="contact" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="section-label"><span>06</span>Contact</p>
+          <h2 id="contact-title">Let's work <em class="serif">together</em></h2>
+          <p class="contact-lead" data-bind="contactLead">Have a project that needs Revit modeling, documentation, or BIM support — or a role on your team? Send a short note with the scope and timeline and I'll get back to you.</p>
+          <div class="contact-actions" data-render="contact-cta"></div>
+        </div>
+        <ul class="contact-list" data-render="contact"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-render="footer"></footer>
+
+  <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Image viewer"></div>
+
+  <noscript><p class="noscript">This portfolio needs JavaScript enabled to display its content.</p></noscript>
+
+  <script src="content.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

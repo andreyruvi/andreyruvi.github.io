@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <!-- Title and description are updated automatically from content.js for each project. -->
+  <title>Project — Revit / BIM Portfolio</title>
+  <meta name="description" content="Revit / BIM project case study: project information, scope, deliverables, and drawings.">
+  <meta name="theme-color" content="#0C0D0F">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="../assets/images/logos/logo-256.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@1&amp;display=swap">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<!-- This one page shows every project: projects/project.html?id=project-01 -->
+<body data-page="project" data-root="../">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" data-progress aria-hidden="true"></div>
+
+  <div class="draft-bar" data-draft-bar hidden>
+    <strong>Draft mode.</strong> Highlighted text is placeholder content — edit <code>content.js</code>, then set <code>draft: false</code> before sharing.
+  </div>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="brand" href="../index.html#home">
+        <span class="brand-mark" aria-hidden="true" data-brand-mark></span>
+        <span class="brand-text" data-bind="name">[YOUR FULL NAME]</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="sr-only">Open menu</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
+        <ul>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a class="is-active" href="../index.html#portfolio" aria-current="true">Portfolio</a></li>
+          <li><a href="../index.html#resume">Resume</a></li>
+          <li><a class="nav-cta" href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" data-render="project"></main>
+
+  <footer class="site-footer" data-render="footer"></footer>
+
+  <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Image viewer"></div>
+
+  <noscript><p class="noscript">This portfolio needs JavaScript enabled to display its content.</p></noscript>
+
+  <script src="../content.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
