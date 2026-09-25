@@ -15,7 +15,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Instrument+Serif:ital@1&amp;display=swap">
-  <link rel="stylesheet" href="../style.css">
+  <script>document.write('<link rel="stylesheet" href="../style.css?v=' + Math.floor(Date.now() / 60000) + '">');</script>
+  <noscript><link rel="stylesheet" href="../style.css"></noscript>
 </head>
 <!-- This one page shows every project: projects/project.html?id=project-01 -->
 <body data-page="project" data-root="../">
@@ -58,7 +59,13 @@
 
   <noscript><p class="noscript">This portfolio needs JavaScript enabled to display its content.</p></noscript>
 
-  <script src="../content.js"></script>
-  <script src="../script.js"></script>
+  <!-- Load the newest content and code on every visit (browsers otherwise keep an old copy for ~10 minutes after an update) -->
+  <script>
+    (function () {
+      var v = Math.floor(Date.now() / 60000);
+      document.write('<script src="../content.js?v=' + v + '"><\/script>');
+      document.write('<script src="../script.js?v=' + v + '"><\/script>');
+    })();
+  </script>
 </body>
 </html>
