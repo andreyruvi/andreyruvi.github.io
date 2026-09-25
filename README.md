@@ -177,7 +177,16 @@ python -m http.server 8000
 
 Then open <http://localhost:8000>.
 
-## Publishing: double-click `push.bat` (easiest)
+## Updating the live website: double-click `update.bat`
+
+After the site is published (it is: https://andreyruvi.github.io/):
+
+1. Open `editor.html`, make your changes, press **Save**.
+2. Double-click **`update.bat`**.
+
+It lists what changed, asks before removing any file, and sends the update. It never creates a new repository. If the folder isn't connected yet, it stops and says so. Changes appear in 1–2 minutes (Ctrl+F5 to refresh).
+
+## First-time publishing: `push.bat`
 
 1. Save your changes in the editor.
 2. Double-click **`push.bat`** in this folder.
