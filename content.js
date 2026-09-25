@@ -4,7 +4,7 @@
    Easiest way to edit: open editor.html in Chrome or Edge.
    You can also edit this file by hand. Text in [SQUARE BRACKETS] is a
    placeholder. Image paths are relative to the website root.
-   Last saved: 2026-09-25 16:54
+   Last saved: 2026-09-25 18:08
    ===================================================================== */
 
 const SITE = {
@@ -1272,5 +1272,91 @@ const PROJECTS = [
       }
     ],
     "thumb": "assets/images/projects/hillside-residence-addition/cover-thumb.webp"
+  },
+  {
+    "id": "project-10",
+    "title": "Revit Shop",
+    "category": "Permit Drawing",
+    "location": "",
+    "year": "",
+    "role": "",
+    "software": [
+      "Revit"
+    ],
+    "scope": "",
+    "image": "assets/images/projects/project-10/1.jpg",
+    "imageAlt": "Strike mechanical shop 2 sheet a 1 0 cover",
+    "summary": "",
+    "description": [],
+    "responsibilities": [],
+    "deliverables": [],
+    "gallery": [
+      {
+        "src": "assets/images/projects/project-10/1.jpg",
+        "alt": "1",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/2.jpg",
+        "alt": "2",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/3.jpg",
+        "alt": "3",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/4.jpg",
+        "alt": "4",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/5.jpg",
+        "alt": "5",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/7.jpg",
+        "alt": "6",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/7.jpg",
+        "alt": "7",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/8.jpg",
+        "alt": "8",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/9.jpg",
+        "alt": "9",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/9.jpg",
+        "alt": "9",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/10.jpg",
+        "alt": "10",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-10/11.jpg",
+        "alt": "11",
+        "caption": ""
+      },
+      {
+        "src": "",
+        "alt": "",
+        "caption": ""
+      }
+    ],
+    "buildingType": "Commercial Building"
   }
 ];
