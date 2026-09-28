@@ -4,7 +4,7 @@
    Easiest way to edit: open editor.html in Chrome or Edge.
    You can also edit this file by hand. Text in [SQUARE BRACKETS] is a
    placeholder. Image paths are relative to the website root.
-   Last saved: 2026-09-25 18:08
+   Last saved: 2026-09-28 03:14
    ===================================================================== */
 
 const SITE = {
@@ -1275,7 +1275,7 @@ const PROJECTS = [
   },
   {
     "id": "project-10",
-    "title": "Revit Shop",
+    "title": "Strike Mechanical Shop",
     "category": "Permit Drawing",
     "location": "",
     "year": "",
@@ -1322,8 +1322,8 @@ const PROJECTS = [
         "caption": ""
       },
       {
-        "src": "assets/images/projects/project-10/7.jpg",
-        "alt": "7",
+        "src": "",
+        "alt": "",
         "caption": ""
       },
       {
@@ -1337,12 +1337,12 @@ const PROJECTS = [
         "caption": ""
       },
       {
-        "src": "assets/images/projects/project-10/9.jpg",
-        "alt": "9",
+        "src": "",
+        "alt": "",
         "caption": ""
       },
       {
-        "src": "assets/images/projects/project-10/10.jpg",
+        "src": "",
         "alt": "10",
         "caption": ""
       },
