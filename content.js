@@ -4,7 +4,7 @@
    Easiest way to edit: open editor.html in Chrome or Edge.
    You can also edit this file by hand. Text in [SQUARE BRACKETS] is a
    placeholder. Image paths are relative to the website root.
-   Last saved: 2026-09-28 03:14
+   Last saved: 2026-09-28 04:31
    ===================================================================== */
 
 const SITE = {
@@ -1358,5 +1358,106 @@ const PROJECTS = [
       }
     ],
     "buildingType": "Commercial Building"
+  },
+  {
+    "id": "project-11",
+    "title": "Lot 10 Cotia Dr, Gautier, MS 39553",
+    "category": "Construction Plans",
+    "location": "Lot 10 Cotia Dr, Gautier, MS 39553",
+    "year": "2/12/2026",
+    "role": "Chief Architect",
+    "software": [
+      "Chief Architect, Revit, Cad"
+    ],
+    "scope": "Architectural modeling, documentation, drawing production",
+    "image": "assets/images/projects/project-11/1.jpg",
+    "imageAlt": "1",
+    "summary": "",
+    "description": [],
+    "responsibilities": [],
+    "deliverables": [],
+    "gallery": [
+      {
+        "src": "assets/images/projects/project-11/1.jpg",
+        "alt": "1",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/2.jpg",
+        "alt": "2",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/3.jpg",
+        "alt": "3",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/4.jpg",
+        "alt": "4",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/5.jpg",
+        "alt": "5",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/6.jpg",
+        "alt": "6",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/7.jpg",
+        "alt": "7",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/8.jpg",
+        "alt": "8",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/9.jpg",
+        "alt": "9",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/10.jpg",
+        "alt": "10",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/11.jpg",
+        "alt": "11",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/12.jpg",
+        "alt": "12",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/13.jpg",
+        "alt": "13",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/14.jpg",
+        "alt": "14",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/15.jpg",
+        "alt": "15",
+        "caption": ""
+      },
+      {
+        "src": "assets/images/projects/project-11/16.jpg",
+        "alt": "16",
+        "caption": ""
+      }
+    ],
+    "buildingType": "New Single Family"
   }
 ];
