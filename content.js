@@ -4,7 +4,7 @@
    Easiest way to edit: open editor.html in Chrome or Edge.
    You can also edit this file by hand. Text in [SQUARE BRACKETS] is a
    placeholder. Image paths are relative to the website root.
-   Last saved: 2026-10-02 17:56
+   Last saved: 2026-10-02 18:00
    ===================================================================== */
 
 const SITE = {
@@ -24,7 +24,7 @@ const SITE = {
   "name": "Architectural Building Design Studio",
   "personName": "Andrey Ruvi (Duong Lam)",
   "title": "Architectural BIM & CAD Specialist",
-  "tagline": "Revit · Chief Architect · AutoCAD · SketchUp",
+  "tagline": "Revit · Chief Architect · AutoCAD · SketchUp · ArchiCad · Lumion",
   "statement": "Permit sets, construction documents, structural and MEP coordination, and scan-to-BIM — produced remotely for US architects, builders and developers.",
   "location": "Tu Liem, Hanoi, Vietnam",
   "availability": "Remote · Freelance & Full-time",
