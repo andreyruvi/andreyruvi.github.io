@@ -241,3 +241,11 @@ body.busy { cursor: progress; }
 
 .field select { width: 100%; padding: 9px 11px; background: var(--field); border: 1px solid var(--line-2); border-radius: 6px; color: var(--text); }
 .field select:focus { border-color: var(--accent); outline: none; }
+
+/* bulk image upload (gallery) */
+.bulk-zone { margin: 10px 0 4px; padding: 14px; border: 1px dashed var(--line-2); border-radius: 8px; text-align: center; transition: border-color .15s, background-color .15s; }
+.bulk-zone.is-drag { border-color: var(--accent); background: rgba(201, 160, 113, .08); }
+.bulk-zone .hint { margin-top: 8px; }
+.bulk-btn { min-width: 200px; }
+.bulk-status { margin: 8px 0 0; font-size: 13px; color: var(--accent); min-height: 1em; }
+.bulk-status:empty { display: none; }

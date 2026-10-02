@@ -4,13 +4,13 @@
    Easiest way to edit: open editor.html in Chrome or Edge.
    You can also edit this file by hand. Text in [SQUARE BRACKETS] is a
    placeholder. Image paths are relative to the website root.
-   Last saved: 2026-09-28 04:34
+   Last saved: 2026-10-02 17:56
    ===================================================================== */
 
 const SITE = {
   "draft": false,
   "theme": {
-    "accent": "#7dca72"
+    "accent": "#c9a071"
   },
   "effects": true,
   "sections": {
@@ -1459,5 +1459,66 @@ const PROJECTS = [
       }
     ],
     "buildingType": "New Single Family"
+  },
+  {
+    "id": "project-12",
+    "title": "Anderson Residence",
+    "category": "Permit Drawings",
+    "location": "",
+    "year": "",
+    "role": "",
+    "software": [
+      "Revit, Cad"
+    ],
+    "scope": "",
+    "image": "assets/images/projects/project-12/anderson-residence.jpg",
+    "imageAlt": "Anderson residence",
+    "summary": "",
+    "description": [],
+    "responsibilities": [],
+    "deliverables": [],
+    "gallery": [
+      {
+        "src": "assets/images/projects/project-12/1.jpg",
+        "alt": "Anderson Residence — 1",
+        "caption": "1"
+      },
+      {
+        "src": "assets/images/projects/project-12/2.jpg",
+        "alt": "Anderson Residence — 2",
+        "caption": "2"
+      },
+      {
+        "src": "assets/images/projects/project-12/3.jpg",
+        "alt": "Anderson Residence — 3",
+        "caption": "3"
+      },
+      {
+        "src": "assets/images/projects/project-12/4.jpg",
+        "alt": "Anderson Residence — 4",
+        "caption": "4"
+      },
+      {
+        "src": "assets/images/projects/project-12/5.jpg",
+        "alt": "Anderson Residence — 5",
+        "caption": "5"
+      },
+      {
+        "src": "assets/images/projects/project-12/6.jpg",
+        "alt": "Anderson Residence — 6",
+        "caption": "6"
+      },
+      {
+        "src": "assets/images/projects/project-12/7.jpg",
+        "alt": "Anderson Residence — 7",
+        "caption": "7"
+      },
+      {
+        "src": "assets/images/projects/project-12/8.jpg",
+        "alt": "Anderson Residence — 8",
+        "caption": "8"
+      }
+    ],
+    "buildingType": "Residential"
   }
 ];

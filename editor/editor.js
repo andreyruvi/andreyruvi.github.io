@@ -222,10 +222,11 @@
             L("responsibilities", "Your responsibilities", { hint: "One per line.", rows: 4 }),
             L("deliverables", "Deliverables / scope items", { hint: "One per line, e.g. Floor plans", rows: 4 }),
             L("tags", "Tags", { hint: "One per line, e.g. New Construction", rows: 3 }),
-            { type: "repeat", key: "gallery", label: "Gallery images", addLabel: "Add image", compact: true,
+            { type: "repeat", key: "gallery", label: "Gallery images", addLabel: "Add one image", compact: true,
+              bulkImages: { key: "src", altKey: "alt", captionKey: "caption", thumbKey: "thumb", dir: projectDir },
               title: (g, i) => plain(g.caption) || (g.src ? g.src.split("/").pop() : `Image ${i + 1}`),
               create: () => ({ src: "", alt: "", caption: "" }),
-              fields: [{ type: "image", key: "src", label: "Image", dir: projectDir, altKey: "alt", thumbKey: "thumb" },
+              fields: [{ type: "image", key: "src", label: "Image", dir: projectDir, altKey: "alt", thumbKey: "thumb", addAfter: true },
                 T("caption", "Caption", { hint: "e.g. Level 1 floor plan" }), T("alt", "Image description")] },
             { type: "text", key: "id", label: "Page address name", advanced: true,
               hint: "Used in the project's web address. Lowercase letters, numbers and dashes only.", sanitize: slug },
@@ -404,6 +405,7 @@
     const count = el("span", { class: "count" });
     const box = el("section", { class: "repeat" + (def.compact ? " compact" : "") },
       el("div", { class: "repeat-head" }, el("h3", {}, def.label), count), listEl,
+      def.bulkImages ? renderBulkImages(def, arr, ctx, () => { draw(); }) : null,
       el("button", { type: "button", class: "btn add", onclick: () => {
         const item = def.create(arr);
         arr.push(item);
@@ -446,7 +448,8 @@
           if (details.open) { openItems.add(item); if (def.onOpen) def.onOpen(item); } else openItems.delete(item);
         });
         const body = el("div", { class: "item-body" });
-        const sub = { ...ctx, onItemChange: () => { updTitle(); if (ctx.onItemChange) ctx.onItemChange(); } };
+        const sub = { ...ctx, onItemChange: () => { updTitle(); if (ctx.onItemChange) ctx.onItemChange(); },
+          repeat: { def, arr, item, redraw: () => { draw(); changed(ctx, true); } } };
         if (def.ctxKey) sub[def.ctxKey] = item;
         def.fields.forEach((f) => body.append(renderField(f, item, sub)));
         details.append(body);
@@ -470,7 +473,7 @@
     thumb.addEventListener("error", () => (thumb.hidden = true));
     path.value = obj[def.key] || "";
     path.addEventListener("change", () => { obj[def.key] = path.value.trim(); if (def.thumbKey) delete obj[def.thumbKey]; setThumb(); changed(ctx); });
-    const choose = el("button", { type: "button", class: "btn", onclick: async () => {
+    const replaceImage = async () => {
       if (!(await folderReadyForUpload())) return;
       const file = await pickFile("image/*");
       if (!file) return;
@@ -489,7 +492,6 @@
           if (altInput) { altInput.value = obj[def.altKey]; markPh(altInput, altInput.value); }
         }
         setThumb();
-        choose.textContent = "Replace image…";
         changed(ctx, true);
         await save(true); // write content.js too, so the site shows the new image right away
         toast(`Image added ✓  Saved to ${rel}${note ? " · " + note : ""}`);
@@ -497,13 +499,30 @@
         console.error(err);
         toast("Couldn't save the image: " + err.message, true);
       } finally { busy(false); }
-    } }, obj[def.key] ? "Replace image…" : "Choose image…");
+    };
+
+    // Gallery images: the main button ADDS new images (one or many) right after this one.
+    const canAdd = def.addAfter && ctx.repeat && ctx.repeat.def.bulkImages;
+    const addImages = async () => {
+      if (!(await folderReadyForUpload())) return;
+      const files = await pickFiles("image/*");
+      if (!files.length) return;
+      const r = ctx.repeat;
+      const at = r.arr.indexOf(r.item) + 1;
+      await bulkAddImages(r.def, r.arr, ctx, files, at, r.redraw, null);
+    };
+    const choose = el("button", { type: "button", class: "btn", onclick: () => (canAdd && obj[def.key] ? addImages() : replaceImage()) },
+      canAdd && obj[def.key] ? "Add image…" : obj[def.key] ? "Replace image…" : "Choose image…");
+    if (canAdd && obj[def.key]) choose.title = "Add one or more images after this one";
+    const replaceBtn = canAdd && obj[def.key]
+      ? el("button", { type: "button", class: "btn ghost", title: "Swap this picture for another", onclick: replaceImage }, "Replace")
+      : null;
     const remove = el("button", { type: "button", class: "btn ghost", onclick: () => {
       obj[def.key] = ""; if (def.thumbKey) delete obj[def.thumbKey]; path.value = ""; setThumb(); changed(ctx);
     } }, "Remove");
     setThumb();
     const box = el("div", { class: "image-field" }, el("div", { class: "thumb-box" }, thumb),
-      el("div", { class: "image-side" }, el("div", { class: "image-btns" }, choose, remove), path,
+      el("div", { class: "image-side" }, el("div", { class: "image-btns" }, choose, replaceBtn, remove), path,
         el("p", { class: "hint" }, CAN_SAVE ? "Large photos are resized automatically (max 2400 px) for fast loading." :
           "To add images, open the editor in Chrome or Edge.")));
     const wrap = fieldWrap(def, path, null);
@@ -514,6 +533,116 @@
   function findSiblingInput(fromEl, key) {
     const block = fromEl.closest(".item-body, fieldset.group, .panel-body");
     return block ? $(`:scope > .field input[data-key="${key}"]`, block) : null;
+  }
+
+  function pickFiles(accept) {
+    return new Promise((res) => {
+      const input = el("input", { type: "file", accept, multiple: true });
+      input.addEventListener("change", () => res(Array.from(input.files || [])));
+      input.click();
+    });
+  }
+
+  // "12-floor-plan_v2.jpg" -> "12 floor plan v2" -> "Floor plan v2" style caption
+  const captionFromName = (name) => {
+    const t = name.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+    return t ? t.charAt(0).toUpperCase() + t.slice(1) : "";
+  };
+
+  async function uniquePath(dir, base, ext) {
+    for (let n = 1; n < 1000; n++) {
+      const rel = `${dir}/${n === 1 ? base : `${base}-${n}`}.${ext}`;
+      if (!(await readFileInfo(rel))) return rel;
+    }
+    return `${dir}/${base}-${Date.now()}.${ext}`;
+  }
+
+  async function bulkAddImages(def, arr, ctx, files, insertAt, redraw, status) {
+    const cfg = def.bulkImages;
+    const say = (t) => { if (status) status.textContent = t; else if (t) toast(t); };
+    files = files.filter((f) => /^image\//.test(f.type));
+    if (!files.length) { toast("No image files found — choose JPG, PNG or WEBP images.", true); return; }
+    // keep the order of the file names (sheet-01, sheet-02, ... sheet-10)
+    files.sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" }));
+    const dir = cfg.dir(ctx);
+    const project = ctx.project;
+    const title = project ? plain(project.title) : "";
+    let done = 0, failed = 0, pos = insertAt, firstItem = null;
+    busy(true);
+    for (const file of files) {
+      say(`Saving image ${done + failed + 1} of ${files.length}: ${file.name}`);
+      try {
+        const { blob, ext } = await processImage(file);
+        const base = slug(file.name.replace(/\.[^.]+$/, "")) || "image";
+        const rel = await uniquePath(dir, base, ext);
+        await writeFile(rel, blob);
+        const caption = captionFromName(file.name);
+        const item = def.create(arr);
+        item[cfg.key] = rel;
+        if (cfg.captionKey) item[cfg.captionKey] = caption;
+        if (cfg.altKey) item[cfg.altKey] = [title, caption].filter(Boolean).join(" — ");
+        arr.splice(pos++, 0, item);
+        if (!firstItem) firstItem = item;
+        done++;
+      } catch (e) {
+        console.error(e);
+        failed++;
+      }
+    }
+    // a new project without a cover: use the first uploaded image
+    if (project && !project.image && firstItem) {
+      const first = firstItem;
+      project.image = first[cfg.key];
+      if (!project.imageAlt || PH.test(project.imageAlt)) project.imageAlt = first[cfg.altKey] || title;
+      delete project.thumb;
+    }
+    busy(false);
+    if (status) status.textContent = "";
+    redraw();
+    changed(ctx, true);
+    if (done) {
+      await save(true);
+      if (project && firstItem && project.image === firstItem[cfg.key]) refreshPage(); // show the new cover in the form
+    }
+    toast(failed ? `Added ${done} image(s). ${failed} could not be saved — see the console for details.`
+                 : `Added ${done} image${done > 1 ? "s" : ""} ✓  Saved to ${dir}`, failed > 0);
+  }
+
+  /* Upload many images at once into a gallery (button or drag & drop). */
+  function renderBulkImages(def, arr, ctx, redraw) {
+    const cfg = def.bulkImages;
+    const status = el("p", { class: "bulk-status", "aria-live": "polite" });
+
+    const upload = (files) => bulkAddImages(def, arr, ctx, files, arr.length, redraw, status);
+
+    const button = el("button", { type: "button", class: "btn primary bulk-btn", onclick: async () => {
+      if (!(await folderReadyForUpload())) return;
+      const files = await pickFiles("image/*");
+      if (files.length) upload(files);
+    } }, "+ Add many images…");
+
+    const zone = el("div", { class: "bulk-zone" },
+      button,
+      el("p", { class: "hint" }, "Select many images at once (Ctrl+A or Shift+click in the window), or drag them here from File Explorer. They are added in file-name order, resized, and saved automatically."),
+      status);
+
+    ["dragenter", "dragover"].forEach((t) => zone.addEventListener(t, (e) => {
+      if (!e.dataTransfer || !Array.from(e.dataTransfer.types || []).includes("Files")) return;
+      e.preventDefault();
+      zone.classList.add("is-drag");
+    }));
+    ["dragleave", "drop"].forEach((t) => zone.addEventListener(t, () => zone.classList.remove("is-drag")));
+    zone.addEventListener("drop", async (e) => {
+      e.preventDefault();
+      const files = Array.from((e.dataTransfer && e.dataTransfer.files) || []);
+      if (!files.length) return;
+      if (!dirHandle || (await dirHandle.queryPermission({ mode: "readwrite" })) !== "granted") {
+        toast("Click “Connect folder” at the top first, then drop the images again.", true);
+        return;
+      }
+      upload(files);
+    });
+    return zone;
   }
 
   function pickFile(accept) {
