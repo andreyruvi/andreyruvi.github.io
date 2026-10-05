@@ -4,7 +4,7 @@
    Easiest way to edit: open editor.html in Chrome or Edge.
    You can also edit this file by hand. Text in [SQUARE BRACKETS] is a
    placeholder. Image paths are relative to the website root.
-   Last saved: 2026-10-02 18:00
+   Last saved: 2026-10-05 11:56
    ===================================================================== */
 
 const SITE = {
